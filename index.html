@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apnea</title>
+
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./progressbar.js"></script>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- Title -->
+        <div class="app-el title">
+            <svg width="62" height="100" viewBox="0 0 62 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M37.2391 18.8696C37.2391 29.0148 29.0148 37.2391 18.8696 37.2391C8.72433 37.2391 0.5 29.0148 0.5 18.8696C0.5 8.72433 8.72433 0.5 18.8696 0.5C29.0148 0.5 37.2391 8.72433 37.2391 18.8696Z"
+                    fill="#6BC6FC" stroke="white" />
+                <circle cx="21.5652" cy="66.0435" r="18.3696" fill="#6BC6FC" stroke="white" />
+                <circle cx="49.1956" cy="86.9347" r="12.3043" fill="#6BC6FC" stroke="white" />
+                <circle cx="43.1305" cy="39.087" r="18.3696" fill="#6BC6FC" stroke="white" />
+                <path d="M4.5 20C4.27536 15.058 5.81216 6.46962 15.5165 5.39136" stroke="white"
+                    stroke-linecap="round" />
+                <path d="M39.0869 25.1372C44.4782 23.1154 51.8913 24.4633 54.5869 30.5285" stroke="white"
+                    stroke-linecap="round" />
+                <path d="M7.41302 65.3696C7.8623 62 10.1087 54.9913 15.5 53.9131" stroke="white"
+                    stroke-linecap="round" />
+                <path class="popup-trigger" id="popup-trigger"
+                    d="M49 77C43.486 77 39 81.486 39 87C39 92.514 43.486 97 49 97C54.514 97 59 92.514 59 87C59 81.486 54.514 77 49 77ZM50 93H48V91H50V93ZM50.976 88.115C50.78 88.273 50.591 88.424 50.441 88.574C50.033 88.981 50.001 89.351 50 89.367V89.5H48V89.333C48 89.215 48.029 88.156 49.026 87.159C49.221 86.964 49.463 86.766 49.717 86.56C50.451 85.965 50.933 85.531 50.933 84.933C50.9214 84.4278 50.7125 83.9473 50.3511 83.5941C49.9896 83.241 49.5043 83.0433 48.999 83.0435C48.4937 83.0436 48.0085 83.2415 47.6472 83.5948C47.286 83.9481 47.0774 84.4288 47.066 84.934H45.066C45.066 82.765 46.831 81 49 81C51.169 81 52.934 82.765 52.934 84.934C52.934 86.531 51.755 87.484 50.976 88.115Z"
+                    fill="white" />
+            </svg>
+            <h1>Apnea</h1>
+        </div>
+
+        <!-- Popup box -->
+        <div class="popup hidden" id="popup">
+            <div class="popup-message">
+                <span class="popup-close" id="popup-close">&times;</span>
+                <h2>Functionality</h2>
+                <p>
+                    This app can be used to train your breath.
+                    There are two modes (CO<sup>2</sup>, O<sup>2</sup>) which differ in what they attempt.
+                    CO<sup>2</sup> practice tries to increase CO<sup>2</sup> tolerance by decreasing the time between
+                    apnea sessions.
+                    O<sup>2</sup> practice tries to increase O<sup>2</sup> capacity by increasing the duration of apnea
+                    sessions.
+                </p>
+                <br>
+                <p>
+                    Preparation / apnea time refer to the initial duration of the corresponding set.
+                    Increments determine the change between each set (depending on the chosen practice).
+                    Sets are how many preparation / apnea cycles are performed.
+                </p><br>
+                <h2>Information</h2>
+                <p>
+                    This website was built for fun after not finding any free options for this exact purpose.
+                    Code is open sourced on <a href="">GitHub</a> and if you have any improvements feel free to make a
+                    PR.
+                </p><br>
+                <p style="display: inline;">&copy; <a href="mailto:">Bastian Eichenberger</a> 2020.</p>
+            </div>
+        </div>
+
+        <!-- Subtitle -->
+        <div class="app-el subtitle">
+            <h3>Practice breathing.</h3>
+        </div>
+
+        <!-- Main box -->
+        <div class="app-el timebox">
+
+            <!-- Input -->
+            <form class="timebox-input" id="timebox-input">
+                <div class="label">Practice type:</div>
+                <div class="input">
+                    <select id="input-type">
+                        <option value="co2">CO<sup>2</sup></option>
+                        <option value="o2">O<sup>2</sup></option>
+                    </select>
+                </div>
+
+                <div class="label">Preparation time:</div>
+                <div class="input">
+                    <input type="text" id="input-prep-min" value="02" min="0" max="60" maxlength="2"
+                        onClick="this.select();"> :
+                    <input type="text" id="input-prep-sec" value="00" min="0" max="60" maxlength="2"
+                        onClick="this.select();">
+                </div>
+
+                <div class="label">Apnea time:</div>
+                <div class="input">
+                    <input type="text" id="input-hold-min" value="02" min="0" max="60" maxlength="2"
+                        onClick="this.select();"> :
+                    <input type="text" id="input-hold-sec" value="00" min="0" max="60" maxlength="2"
+                        onClick="this.select();">
+                </div>
+
+                <div class="label">Increments:</div>
+                <div class="input">
+                    <input type="text" id="input-incr-min" value="00" min="0" max="60" maxlength="2"
+                        onClick="this.select();"> :
+                    <input type="text" id="input-incr-sec" value="15" min="0" max="60" maxlength="2"
+                        onClick="this.select();">
+                </div>
+
+                <div class="label">Sets:</div>
+                <div class="input">
+                    <input type="text" id="input-sets" value="4" min="0" max="20" maxlength="2"
+                        onClick="this.select();">
+                </div>
+            </form>
+
+            <!-- Running -->
+            <div class="timebox-running hidden" id="timebox-running">
+                <div id="active-description">One</div>
+                <div id="active-time">00:43</div>
+                <div id="progress"></div>
+                <div id="active-set">Set 1/8</div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="app-el btn-start">
+            <button id="btn-start">Start</button>
+        </div>
+        <div class="app-el btn-reset">
+            <button id="btn-reset">Reset</button>
+        </div>
+
+        <!-- Ads -->
+        <!-- <div class="app-el adsense">
+            <img src="./images/320x100.png" alt="adsense">
+        </div> -->
+
+    </div>
+</body>
+
+<script src="./app.js"></script>
+
+</html>

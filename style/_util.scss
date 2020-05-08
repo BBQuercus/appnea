@@ -1,0 +1,30 @@
+@font-face {
+    font-family: light;
+    src: url(../fonts/Oswald-Light.ttf);
+}
+
+@font-face {
+    font-family: regular;
+    src: url(../fonts/Oswald-Regular.ttf);
+}
+
+$cGreen: #69ab15;
+$cLightBlue: #2198de;
+$cDarkBlue: #1a2c42;
+$cRed: #b05933;
+$cGray: #949494;
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin defButton {
+    @include flexCenter;
+    width: inherit;
+    color: white;
+    font-size: 24px;
+    border-radius: 18px;
+    border: none;
+}

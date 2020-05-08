@@ -1,0 +1,161 @@
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient($cLightBlue, $cDarkBlue);
+}
+
+.app-el {
+    width: 360px;
+    padding: 10px 0px;
+}
+
+.title,
+.subtitle {
+    color: white;
+}
+
+.title {
+    @include flexCenter;
+    h1 {
+        padding-left: 10px;
+        font-size: 100px;
+    }
+}
+
+.popup {
+    @include flexCenter;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    z-index: 10000;
+    box-shadow: 10px 10px 60px #555;
+
+    .popup-message {
+        @include flexCenter;
+        background-color: white;
+        border-radius: 18px;
+        flex-direction: column;
+        font-size: 16px;
+        max-width: 360px;
+        min-height: 100px;
+        padding: 10px;
+        position: relative;
+        width: 60%;
+
+        .popup-close {
+            position: absolute;
+            line-height: 0px;
+            font-size: 48px;
+            top: 0px;
+            left: 0px;
+            padding: 15px 10px;
+        }
+    }
+}
+
+.popup-trigger {
+    cursor: pointer;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.subtitle {
+    h3 {
+        font-size: 36px;
+        text-align: center;
+    }
+}
+
+.timebox {
+    background-color: white;
+    border-radius: 18px;
+    font-size: 24px;
+    padding: 10px;
+    $timeboxHeight: 252px;
+
+    .timebox-input {
+        height: $timeboxHeight;
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        .label {
+            justify-self: end;
+            white-space: nowrap;
+        }
+        .input {
+            justify-self: start;
+        }
+        div {
+            padding: 5px 10px 5px 10px;
+        }
+        select,
+        input {
+            font-size: inherit;
+            border-radius: 5px;
+            border: thin;
+            border-style: solid;
+            border-color: $cGray;
+            text-align: center;
+        }
+        input {
+            width: 2em;
+        }
+    }
+
+    .timebox-running {
+        height: $timeboxHeight;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #active-description {
+            font-size: 24px;
+        }
+        #active-time {
+            font-size: 100px;
+        }
+        #progress {
+            margin-bottom: 20px;
+            height: 10px;
+        }
+        #active-set {
+            margin: 10px;
+            font-size: 16px;
+        }
+    }
+}
+
+.btn-start {
+    padding-top: 20px;
+    button {
+        background-color: $cGreen;
+        @include defButton;
+        &:hover {
+            background-color: darken($color: $cGreen, $amount: 5);
+        }
+    }
+}
+
+.btn-reset button {
+    background-color: $cGray;
+    @include defButton;
+    &:hover {
+        background-color: darken($color: $cGray, $amount: 5);
+    }
+}
+
+.adsense {
+    @include flexCenter;
+}
+
+.hidden {
+    display: none !important;
+}

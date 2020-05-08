@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="./style/style.css">
     <script src="./progressbar.js"></script>
+    <script data-ad-client="ca-pub-6828453932360663" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
@@ -84,41 +85,41 @@
 
                 <div class="label">Preparation time:</div>
                 <div class="input">
-                    <input type="text" id="input-prep-min" value="02" min="0" max="60" maxlength="2"
+                    <input type="number" id="input-prep-min" value="02" min="0" max="60" maxlength="2"
                         onClick="this.select();"> :
-                    <input type="text" id="input-prep-sec" value="00" min="0" max="60" maxlength="2"
+                    <input type="number" id="input-prep-sec" value="00" min="0" max="60" maxlength="2"
                         onClick="this.select();">
                 </div>
 
                 <div class="label">Apnea time:</div>
                 <div class="input">
-                    <input type="text" id="input-hold-min" value="02" min="0" max="60" maxlength="2"
+                    <input type="number" id="input-hold-min" value="02" min="0" max="60" maxlength="2"
                         onClick="this.select();"> :
-                    <input type="text" id="input-hold-sec" value="00" min="0" max="60" maxlength="2"
+                    <input type="number" id="input-hold-sec" value="00" min="0" max="60" maxlength="2"
                         onClick="this.select();">
                 </div>
 
                 <div class="label">Increments:</div>
                 <div class="input">
-                    <input type="text" id="input-incr-min" value="00" min="0" max="60" maxlength="2"
+                    <input type="number" id="input-incr-min" value="00" min="0" max="60" maxlength="2"
                         onClick="this.select();"> :
-                    <input type="text" id="input-incr-sec" value="15" min="0" max="60" maxlength="2"
+                    <input type="number" id="input-incr-sec" value="15" min="0" max="60" maxlength="2"
                         onClick="this.select();">
                 </div>
 
                 <div class="label">Sets:</div>
                 <div class="input">
-                    <input type="text" id="input-sets" value="4" min="0" max="20" maxlength="2"
+                    <input type="number" id="input-sets" value="4" min="0" max="20" maxlength="2"
                         onClick="this.select();">
                 </div>
             </form>
 
             <!-- Running -->
             <div class="timebox-running hidden" id="timebox-running">
-                <div id="active-description">One</div>
-                <div id="active-time">00:43</div>
+                <div id="active-description"></div>
+                <div id="active-time"></div>
                 <div id="progress"></div>
-                <div id="active-set">Set 1/8</div>
+                <div id="active-set"></div>
             </div>
         </div>
 

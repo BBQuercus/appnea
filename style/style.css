@@ -8,6 +8,18 @@
   src: url(../fonts/Oswald-Regular.ttf);
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 *,
 *::before,
 *::after {
@@ -96,9 +108,6 @@ button :active {
 }
 
 .popup .popup-message {
-  background-color: white;
-  font-size: 16px;
-  border-radius: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,15 +117,18 @@ button :active {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: white;
+  border-radius: 18px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 60%;
+  font-size: 16px;
   max-width: 360px;
   min-height: 100px;
   padding: 10px;
   position: relative;
+  width: 60%;
 }
 
 .popup .popup-message .popup-close {

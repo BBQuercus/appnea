@@ -26,8 +26,6 @@ document.querySelector('#popup-close').addEventListener('click', function () {
 })
 
 
-
-
 // Progressbar logic
 function startProgressBar(idName, duration) {
     var bar = new ProgressBar.Line(idName, {
@@ -49,8 +47,6 @@ const delay = millis => new Promise((resolve, reject) => {
 
 // Change timebox html and trigger progressbar
 const updateCountdown = async function (elType, elTime, elSet, totalSeconds, set, sets, description) {
-    console.log(elType, elTime, elSet, totalSeconds, set, sets, description);
-
     document.querySelector(`#progress`).innerHTML = '';
     startProgressBar(progress, 1000 * totalSeconds);
 
@@ -59,7 +55,7 @@ const updateCountdown = async function (elType, elTime, elSet, totalSeconds, set
         let seconds = totalSeconds % 60;
         seconds = seconds < 10 ? '0' + seconds : seconds;
 
-        if (set >= 1) {
+        if (set !== 0) {
             elSet.innerHTML = `Set ${set}/${sets}`;
         }
 
@@ -73,10 +69,18 @@ const updateCountdown = async function (elType, elTime, elSet, totalSeconds, set
 
 // Reseting
 btnReset.addEventListener('click', function () {
-    btnStart.classList.remove('hidden');
-    timerInput.classList.remove('hidden');
-    timerInput.reset();
-    timerRunning.classList.add('hidden');
+    // Don't know how to stop async function
+    location.reload();
+
+    // btnStart.classList.remove('hidden');
+    // timerInput.classList.remove('hidden');
+    // timerInput.reset();
+    // timerRunning.classList.add('hidden');
+
+    // timerType.innerHTML = '';
+    // timerTime.innerHTML = '';
+    // timerSets.innerHTML = '';
+    // document.querySelector('#progress').innerHTML = '';
 });
 
 // Countdown logic
@@ -87,7 +91,7 @@ btnStart.addEventListener('click', function () {
     timerRunning.classList.remove('hidden');
 
     const startPractice = async function (type, prep, hold, incr, sets) {
-        await updateCountdown(timerType, timerTime, timerSets, 5, 0, sets, 'Get ready');
+        await updateCountdown(timerType, timerTime, timerSets, 5, 0, 0, 'Get ready');
 
         let currHold;
         let currPrep;
